@@ -9,6 +9,13 @@ plugins {
     alias(libs.plugins.zipline.gradle.plugin)
 }
 
+
+compose.resources {
+    publicResClass = true
+    packageOfResClass = "com.epicadk.zipline.sample"
+    generateResClass = always
+}
+
 kotlin {
     applyDefaultHierarchyTemplate()
     androidTarget {
@@ -37,6 +44,7 @@ kotlin {
 
         val commonMain by getting {
             dependencies {
+                implementation(compose.runtime)
                 implementation(libs.zipline)
             }
         }
@@ -45,12 +53,12 @@ kotlin {
             dependsOn(commonMain)
             dependencies {
                 implementation(libs.zipline.loader)
-                implementation(compose.runtime)
                 implementation(compose.foundation)
                 implementation(compose.material)
                 implementation(compose.ui)
                 implementation(compose.components.uiToolingPreview)
                 implementation(libs.androidx.lifecycle.viewmodel)
+                implementation(libs.androidx.lifecycle.viewmodel.compose)
                 implementation(libs.androidx.lifecycle.runtime.compose)
                 implementation(compose.components.resources)
             }
@@ -59,6 +67,7 @@ kotlin {
             dependencies {
                 implementation(compose.preview)
                 implementation(libs.androidx.activity.compose)
+                implementation(libs.okhttp)
             }
             dependsOn(hostMain)
         }
@@ -104,5 +113,9 @@ android {
     dependencies {
         debugImplementation(compose.uiTooling)
     }
+}
+
+zipline {
+    mainFunction = "com.epicadk.zipline.sample.main"
 }
 

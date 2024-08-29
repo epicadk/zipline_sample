@@ -41,11 +41,11 @@ class GreetingLoader(
     }
 
     init {
-        scope.launch {
+        scope.launch(ziplineDisPatcher) {
             loadResult.collect {
                 when (it) {
                     is LoadResult.Failure -> {
-                        // Log failure
+                        throw it.exception
                     }
 
                     is LoadResult.Success -> {
