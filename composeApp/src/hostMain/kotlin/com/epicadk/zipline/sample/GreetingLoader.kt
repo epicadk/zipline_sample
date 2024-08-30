@@ -1,11 +1,11 @@
 package com.epicadk.zipline.sample
 
-import app.cash.zipline.EventListener
 import app.cash.zipline.loader.DefaultFreshnessCheckerNotFresh
 import app.cash.zipline.loader.LoadResult
 import app.cash.zipline.loader.ManifestVerifier
 import app.cash.zipline.loader.ZiplineHttpClient
 import app.cash.zipline.loader.ZiplineLoader
+import co.touchlab.kermit.Logger
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.channels.Channel
@@ -32,7 +32,7 @@ class GreetingLoader(
             dispatcher = ziplineDisPatcher,
             manifestVerifier = ManifestVerifier.NO_SIGNATURE_CHECKS, // TODO create sample with manifest checks
             httpClient = ziplineHttpClient,
-            eventListener = EventListener.NONE // TODO create sample with event listeners
+            eventListener = LoggingEventListener(Logger.withTag("Zipline"))
         ).load(
             applicationName = "com.epicadk.zipline.sample.greeter",
             manifestUrlFlow = flowOf(""),
