@@ -7,5 +7,15 @@ plugins {
     alias(libs.plugins.compose.compiler) apply false
     alias(libs.plugins.kotlinMultiplatform) apply false
     alias(libs.plugins.zipline.gradle.plugin) apply false
-    alias(libs.plugins.spotless.gradle.plugin) apply false
+    alias(libs.plugins.spotless.gradle.plugin) apply true
+}
+
+spotless {
+    predeclareDeps()
+}
+
+extensions.configure<com.diffplug.gradle.spotless.SpotlessExtensionPredeclare> {
+    kotlin {
+        ktlint("0.49.1")
+    }
 }
