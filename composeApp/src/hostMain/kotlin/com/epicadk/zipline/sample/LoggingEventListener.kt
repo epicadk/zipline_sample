@@ -27,7 +27,7 @@ class LoggingEventListener(private val logger: Logger) : EventListener() {
         zipline: Zipline,
         call: Call,
         result: CallResult,
-        startValue: Any?
+        startValue: Any?,
     ) {
         logger.d { "callEnd: zipline:$zipline, call:$call, result:$result, startValue:$startValue" }
     }
@@ -44,7 +44,7 @@ class LoggingEventListener(private val logger: Logger) : EventListener() {
     override fun applicationLoadSkipped(
         applicationName: String,
         manifestUrl: String,
-        startValue: Any?
+        startValue: Any?,
     ) {
         logger.i { "applicationLoadSkipped: applicationName:$applicationName, manifestUrl:$manifestUrl, startValue:$startValue" }
     }
@@ -52,7 +52,7 @@ class LoggingEventListener(private val logger: Logger) : EventListener() {
     override fun applicationLoadSkippedNotFresh(
         applicationName: String,
         manifestUrl: String?,
-        startValue: Any?
+        startValue: Any?,
     ) {
         logger.i { "applicationLoadSkippedNotFresh: applicationName:$applicationName, manifestUrl:$manifestUrl, startValue:$startValue" }
     }
@@ -62,7 +62,7 @@ class LoggingEventListener(private val logger: Logger) : EventListener() {
         manifestUrl: String?,
         manifest: ZiplineManifest,
         zipline: Zipline,
-        startValue: Any?
+        startValue: Any?,
     ) {
         logger.d { "applicationLoadSuccess: applicationName:$applicationName, manifestUrl:$manifestUrl, manifest:$manifest, zipline:$zipline, startValue:$startValue" }
     }
@@ -71,7 +71,7 @@ class LoggingEventListener(private val logger: Logger) : EventListener() {
         applicationName: String,
         manifestUrl: String?,
         exception: Exception,
-        startValue: Any?
+        startValue: Any?,
     ) {
         logger.e(exception) { "applicationLoadFailed: applicationName:$applicationName, manifestUrl:$manifestUrl, startValue:$startValue" }
     }
@@ -89,7 +89,7 @@ class LoggingEventListener(private val logger: Logger) : EventListener() {
         applicationName: String,
         url: String,
         exception: Exception,
-        startValue: Any?
+        startValue: Any?,
     ) {
         logger.e(exception) { "downloadFailed: applicationName:$applicationName, url:$url, startValue:$startValue" }
     }
@@ -101,7 +101,7 @@ class LoggingEventListener(private val logger: Logger) : EventListener() {
     override fun manifestParseFailed(
         applicationName: String,
         url: String?,
-        exception: Exception
+        exception: Exception,
     ) {
         logger.e(exception) { "manifestParseFailed: applicationName:$applicationName, url:$url" }
     }
@@ -110,7 +110,7 @@ class LoggingEventListener(private val logger: Logger) : EventListener() {
         applicationName: String,
         manifestUrl: String?,
         manifest: ZiplineManifest,
-        verifiedKey: String
+        verifiedKey: String,
     ) {
         logger.d { "manifestVerified: applicationName:$applicationName, manifestUrl:$manifestUrl, manifest:$manifest, verifiedKey:$verifiedKey" }
     }
@@ -118,7 +118,7 @@ class LoggingEventListener(private val logger: Logger) : EventListener() {
     override fun manifestReady(
         applicationName: String,
         manifestUrl: String?,
-        manifest: ZiplineManifest
+        manifest: ZiplineManifest,
     ) {
         logger.d { "manifestReady: applicationName:$applicationName, manifestUrl:$manifestUrl, manifest:$manifest" }
     }
@@ -140,7 +140,7 @@ class LoggingEventListener(private val logger: Logger) : EventListener() {
     override fun initializerEnd(
         zipline: Zipline,
         applicationName: String,
-        startValue: Any?
+        startValue: Any?,
     ) {
         logger.d { "initializerEnd: zipline:$zipline, applicationName:$applicationName, startValue:$startValue" }
     }
@@ -153,7 +153,7 @@ class LoggingEventListener(private val logger: Logger) : EventListener() {
     override fun mainFunctionEnd(
         zipline: Zipline,
         applicationName: String,
-        startValue: Any?
+        startValue: Any?,
     ) {
         logger.d { "mainFunctionEnd: zipline:$zipline, applicationName:$applicationName, startValue:$startValue" }
     }

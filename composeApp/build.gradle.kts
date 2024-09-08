@@ -1,3 +1,4 @@
+import com.diffplug.gradle.spotless.SpotlessExtension
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
@@ -7,6 +8,7 @@ plugins {
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.zipline.gradle.plugin)
+    alias(libs.plugins.spotless.gradle.plugin)
 }
 
 
@@ -118,6 +120,13 @@ android {
     }
     dependencies {
         debugImplementation(compose.uiTooling)
+    }
+}
+
+configure<SpotlessExtension> {
+    kotlin {
+        target("**/*.kt")
+        ktlint("0.49.1")
     }
 }
 

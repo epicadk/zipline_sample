@@ -18,6 +18,7 @@ kotlin = "2.0.0"
 okhttp = "4.12.0"
 okio = "3.9.0"
 zipline = "1.16.0"
+spotless = "6.25.0"
 
 [libraries]
 kermit = { module = "co.touchlab:kermit", version.ref = "kermit" }
@@ -49,3 +50,4 @@ jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "compose-plugin
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 zipline-gradle-plugin = { id = "app.cash.zipline" , version.ref = "zipline" }
+spotless-gradle-plugin = { id = "com.diffplug.spotless", version.ref = "spotless" }

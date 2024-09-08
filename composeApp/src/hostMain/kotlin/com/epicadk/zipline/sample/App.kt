@@ -14,9 +14,9 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
+// TODO remove the cache provider argument
 @Composable
 @Preview
-// TODO remove the cache provider argument
 fun App(cacheProvider: CacheProvider) {
     val greetingVM = viewModel {
         GreetingViewModel(cacheProvider = cacheProvider)
@@ -30,5 +30,4 @@ fun App(cacheProvider: CacheProvider) {
             }
         }
     }
-
 }

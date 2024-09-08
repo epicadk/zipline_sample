@@ -37,7 +37,7 @@ class GreetingLoader(
             dispatcher = ziplineDisPatcher,
             manifestVerifier = ManifestVerifier.NO_SIGNATURE_CHECKS, // TODO create sample with manifest checks
             httpClient = ziplineHttpClient,
-            eventListener = LoggingEventListener(Logger.withTag("Zipline"))
+            eventListener = LoggingEventListener(Logger.withTag("Zipline")),
         )
             // TODO add support for embedding
 //            .withEmbedded(
@@ -46,12 +46,12 @@ class GreetingLoader(
 //        )
             .withCache(
                 cache = cache,
-                cacheDispatcher = Dispatchers.IO
-        ).load(
-            applicationName = "com.epicadk.zipline.sample.greeter",
-            manifestUrlFlow = flowOf(""),
-            freshnessChecker = DefaultFreshnessCheckerNotFresh
-        )
+                cacheDispatcher = Dispatchers.IO,
+            ).load(
+                applicationName = "com.epicadk.zipline.sample.greeter",
+                manifestUrlFlow = flowOf(""),
+                freshnessChecker = DefaultFreshnessCheckerNotFresh,
+            )
     }
 
     init {

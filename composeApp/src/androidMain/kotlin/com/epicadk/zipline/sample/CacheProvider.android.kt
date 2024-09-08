@@ -10,7 +10,6 @@ actual class CacheProvider(context: Context) {
         context,
         FileSystem.SYSTEM,
         context.cacheDir.toOkioPath(),
-        8 * 1024 * 1024
+        8 * 1024 * 1024,
     )
-
 }
