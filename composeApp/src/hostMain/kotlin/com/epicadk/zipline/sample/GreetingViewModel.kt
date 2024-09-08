@@ -7,21 +7,22 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlin.time.Duration.Companion.seconds
 
-class GreetingViewModel : ViewModel() {
+class GreetingViewModel(private val cacheProvider: CacheProvider) : ViewModel() {
     private val inputChannel = Channel<String>()
 
     private val greeter: Greeter by lazy {
         GreetingLoader(
-            viewModelScope,
-            SingleThreadedCoroutineDispatcher(),
-            ziplineHttpClient,
-            inputChannel
+            scope = viewModelScope,
+            ziplineDisPatcher = SingleThreadedCoroutineDispatcher(),
+            ziplineHttpClient = ziplineHttpClient,
+            input = inputChannel,
+            cache = cacheProvider.ziplineCache,
         )
     }
 
     init {
         viewModelScope.launch {
-            for (x in 1..100) {
+            repeat(100) { x ->
                 inputChannel.send(x.toString())
                 delay(1.seconds)
             }

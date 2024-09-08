@@ -62,6 +62,10 @@ kotlin {
                 implementation(libs.androidx.lifecycle.runtime.compose)
                 implementation(compose.components.resources)
                 implementation(libs.kermit)
+                implementation(libs.okio)
+                implementation(libs.okio.assetfilesystem)
+
+
 
             }
         }

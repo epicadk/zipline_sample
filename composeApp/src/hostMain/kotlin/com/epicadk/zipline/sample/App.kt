@@ -16,9 +16,10 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
 @Preview
-fun App() {
+// TODO remove the cache provider argument
+fun App(cacheProvider: CacheProvider) {
     val greetingVM = viewModel {
-        GreetingViewModel()
+        GreetingViewModel(cacheProvider = cacheProvider)
     }
     MaterialTheme {
         Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
