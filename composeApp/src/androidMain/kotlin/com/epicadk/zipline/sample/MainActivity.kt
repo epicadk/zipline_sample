@@ -9,9 +9,10 @@ import androidx.compose.ui.tooling.preview.Preview
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        // could be move to your application class
+        ContextProvider.init(this.application)
         setContent {
-            App(CacheProvider(context = this))
+            App()
         }
     }
 }

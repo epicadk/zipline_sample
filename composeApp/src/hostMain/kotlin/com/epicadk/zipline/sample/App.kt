@@ -14,18 +14,21 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
-// TODO remove the cache provider argument
+// TODO remove the cache provide r argument
 @Composable
 @Preview
-fun App(cacheProvider: CacheProvider) {
+fun App() {
     val greetingVM = viewModel {
-        GreetingViewModel(cacheProvider = cacheProvider)
+        GreetingViewModel()
     }
     MaterialTheme {
         Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
             val greeting by greetingVM.outputFlow.collectAsState()
             Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
-                Image(painterResource(Res.drawable.compose_multiplatform), null)
+                Image(
+                    painterResource(Res.drawable.compose_multiplatform),
+                    "compose multiplatform image",
+                )
                 Text("Compose: $greeting")
             }
         }

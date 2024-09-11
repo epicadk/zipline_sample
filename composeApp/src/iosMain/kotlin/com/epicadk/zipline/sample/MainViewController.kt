@@ -2,4 +2,5 @@ package com.epicadk.zipline.sample
 
 import androidx.compose.ui.window.ComposeUIViewController
 
-fun MainViewController() = ComposeUIViewController { App(CacheProvider()) }
+@Suppress("Unused", "FunctionName")
+fun MainViewController() = ComposeUIViewController { App() }

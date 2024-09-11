@@ -7,7 +7,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlin.time.Duration.Companion.seconds
 
-class GreetingViewModel(private val cacheProvider: CacheProvider) : ViewModel() {
+class GreetingViewModel : ViewModel() {
     private val inputChannel = Channel<String>()
 
     private val greeter: Greeter by lazy {
@@ -16,7 +16,7 @@ class GreetingViewModel(private val cacheProvider: CacheProvider) : ViewModel() 
             ziplineDisPatcher = SingleThreadedCoroutineDispatcher(),
             ziplineHttpClient = ziplineHttpClient,
             input = inputChannel,
-            cache = cacheProvider.ziplineCache,
+            cache = CacheProvider().ziplineCache,
         )
     }
 
